@@ -1,0 +1,15 @@
+version: '3.6'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: canvas-sketch sketch-01.js
+    volumes:
+      - .:/app
+    stdin_open: true
+    tty: true
+    environment:
+      - CANVAS_SKETCH_OUTPUT=/app
+    ports:
+      - "9966:9966"
